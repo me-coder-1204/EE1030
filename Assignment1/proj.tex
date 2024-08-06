@@ -31,6 +31,7 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{float}
+\usepackage{xparse}
 
 
 \newtheorem{theorem}{Theorem}[section]
@@ -61,7 +62,7 @@
 \renewcommand{\thetable}{\theenumi}
 
 \section{SECTION B}
-\noindent 6. If $f(1)=1,f^1(1)=2$, then $\displaystyle\lim\limits_{x\to 1} \frac{{\sqrt{f(x)}}-1}{{\sqrt{x}}-1}$ is  \rightline{[2002]}\\
+6. If $f(1)=1,f^1(1)=2$, then $\displaystyle\lim\limits_{x\to 1} \frac{{\sqrt{f(x)}}-1}{{\sqrt{x}}-1}$ is  \hfill{[2002]}\\
 \begin{enumerate}
     \item 2
     \item 4
@@ -70,7 +71,7 @@
 \end{enumerate}
 
 
-\noindent 7. $f$ is defined in [-5,5] as\hfill [2002]\\
+7. $f$ is defined in [-5,5] as\hfill [2002]\\
     $f(x) = x$ if $x$ is rational\\
     $\-$ $\-$ $\-$ $\-$ $\-$ $\-$ $= -x$ if $x$ is irrational. Then
 
@@ -81,8 +82,7 @@
     \item $f(x)$ is discontinuous everywhere\\[2pt]
 \end{enumerate}
 
-\noindent 8. $f(x)$ and $g(x)$ are two differentiable functions on [0,2] such that $f''(x)-g''(x)=0, f'(1)=2g'(1)=4,f(2)=3g(2)=9$ then $f(x)-g(x)$ at $x=\frac{3}{2}$ is 
-\rightline{[2002]}
+8. $f(x)$ and $g(x)$ are two differentiable functions on [0,2] such that $f''(x)-g''(x)=0, f'(1)=2g'(1)=4,f(2)=3g(2)=9$ then $f(x)-g(x)$ at $x=\frac{3}{2}$ is\hfill{[2002]}
 \begin{enumerate}
     \item 0
     \item 2
@@ -90,7 +90,7 @@
     \item 5\\[2pt]
 \end{enumerate}
 
-\noindent 9. If $f(x+y)=f(x).f(y)\forall x,y$ and $f(5)=2,f'(0)=3$, then $f'(5)$ is \hfill [2002]
+9. If $f(x+y)=f(x).f(y)\forall x,y$ and $f(5)=2,f'(0)=3$, then $f'(5)$ is \hfill [2002]
 
 \begin{enumerate}
     \item 0
@@ -99,7 +99,7 @@
     \item 2\\[2pt]
 \end{enumerate}
 
-\noindent 10. $\displaystyle\lim\limits_{x\to\infty}\negthickspace\frac{1+2^4+3^4+\dots n^4}{n^5}-\lim\limits_{x\to\infty}\frac{1+2^3+3^3+\dots n^3}{n^5}$ \rightline{[2003]}
+10. $\displaystyle\lim\limits_{x\to\infty}\frac{1+2^4+3^4+\dots n^4}{n^5}$$-$$\displaystyle\lim\limits_{x\to\infty}\frac{1+2^3+3^3+\dots n^3}{n^5}$ \hfill{[2003]}
 \begin{enumerate}
     \item $\frac{1}{5}$
     \item $\frac{1}{30}$
@@ -107,8 +107,7 @@
     \item $\frac{1}{4}$\\[2pt]
 \end{enumerate}
 
-\noindent 11. If $\displaystyle \lim\limits_{x\to 0}\frac{\log(3+x)-\log(3-x)}{x} = k$, then the value of $k$ is \\
-\rightline{[2003]}
+11. If $\displaystyle \lim\limits_{x\to 0}\frac{\log(3+x)-\log(3-x)}{x} = k$, then the value of $k$ is \hfill{[2003]}
 \begin{enumerate}
     \item $-\frac{2}{3}$
     \item $0$
@@ -116,7 +115,7 @@
     \item $\frac{2}{3}$\\[2pt]
 \end{enumerate}
 
-\noindent 12. The value of $\displaystyle \lim\limits_{x\to 0}\frac{\int_{0}^{x^2} \sec^2tdt}{x\sin x}$ is \hfill [2003]
+12. The value of $\displaystyle \lim\limits_{x\to 0}\frac{\int_{0}^{x^2} \sec^2tdt}{x\sin x}$ is \hfill [2003]
 \begin{enumerate}
     \item 0 
     \item 3
@@ -124,7 +123,7 @@
     \item 1\\[2pt]
 \end{enumerate}
 
-\noindent 13. Let $f(a)=g(a)=k$ and their nth derivatives $f^n(a),g^n(a)$ exist and are not equal for some $n$. Further if $\displaystyle \lim\limits_{x\to a}\frac{f(a)g(x)-f(a)-g(a)f(x)+f(a)}{g(x)-f(x)}=4$ then the value of $k$ is \hfill [2003]
+13. Let $f(a)=g(a)=k$ and their nth derivatives $f^n(a),g^n(a)$ exist and are not equal for some $n$. Further if $\displaystyle \lim\limits_{x\to a}\frac{f(a)g(x)-f(a)-g(a)f(x)+f(a)}{g(x)-f(x)}=4$ then the value of $k$ is \hfill [2003]
 
 \begin{enumerate}
     \item 0
@@ -133,7 +132,7 @@
     \item 1\\[2pt]
 \end{enumerate}
 
-\noindent 14. $\displaystyle \lim\limits_{x\to\frac{\pi}{2}}\frac{\left[1-tan\left(\frac{x}{2}\right)\right]\left[1-\sin x\right]}{ \left[1+tan\left(\frac{x}{2}\right)\right]\left[\pi-2x\right]^3}$ is \hfill [2003]
+14. $\displaystyle \lim\limits_{x\to\frac{\pi}{2}}\frac{\left[1-tan\left(\frac{x}{2}\right)\right]\left[1-\sin x\right]}{ \left[1+tan\left(\frac{x}{2}\right)\right]\left[\pi-2x\right]^3}$ is \hfill [2003]
 
 \begin{enumerate}
     \item $\infty$
@@ -142,7 +141,7 @@
     \item $\frac{1}{32}$\\[2pt]
 \end{enumerate}
 
-\noindent 15. $\displaystyle \text{If } f(x)=
+15. $\displaystyle \text{If } f(x)=
     \begin{dcases}
         xe^{-\left( \frac{1}{|x|} + \frac{1}{x} \right)},&x\neq 0\\ 
         0                                    ,&x = 0
@@ -157,7 +156,7 @@ $ \hfill [2003]
     \item neither differentiable not continuous at $x=0$
 \end{enumerate}
 
-\noindent 16. if $\displaystyle \lim\limits_{x\to\infty}\left(1+\frac{a}{x}+\frac{b}{x^2}\right)^{2x}=e^2$, then the values of $a$ and $b$, are\hfill [2004]
+16. if $\displaystyle \lim\limits_{x\to\infty}\left(1+\frac{a}{x}+\frac{b}{x^2}\right)^{2x}=e^2$, then the values of $a$ and $b$, are\hfill [2004]
 
 \begin{enumerate}
     \item $a=1$ and $b=2$
@@ -165,6 +164,7 @@ $ \hfill [2003]
     \item $a\in \textbf{\textit{R}},b=2$
     \item $a\in \textbf{\textit{R}},b\in \textbf{\textit{R}}$\\[2pt]
 \end{enumerate}
+
 17. $\displaystyle f(x)=\frac{1-\tan x}{4x-\pi}, x\neq\frac{\pi}{4},x\in\left[0,\frac{\pi}{4}\right]\text{.If }f(x)$ is continuous in $\displaystyle\left[0,\frac{\pi}{2}\right],$\text{then }$f\left(\frac{\pi}{4}\right)$\text{is}
 
 \begin{enumerate}
@@ -174,16 +174,16 @@ $ \hfill [2003]
     \item $1$\\[2pt]
 \end{enumerate}
 
-\noindent 18. $\displaystyle\lim\limits_{n\to\infty}\left[\frac{1}{n^2}\sec^2\frac{1}{n^2}+\frac{2}{n^2}\sec^2\frac{4}{n^2}\dots\dots\dots\dots\frac{1}{n}sec^2 1\right]$ equals\hfill[2005]
+18. $\displaystyle\lim\limits_{n\to\infty}\left[\frac{1}{n^2}\sec^2\frac{1}{n^2}+\frac{2}{n^2}\sec^2\frac{4}{n^2}\dots\dots\dots\dots\frac{1}{n}sec^2 1\right]$ equals\hfill[2005]
 
 \begin{enumerate}
     \item $\frac{1}{2}\sec 1$
-    \item $\frac{1}{2}\csc 1$
+    \item $\frac{1}{2}\cosec 1$
     \item $\tan 1$
     \item $\frac{1}{2} \tan 1$\\[2pt]
 \end{enumerate}
 
-\noindent 19. Let $\alpha$ and $\beta$ be the distinct roots of $ax^2+bx+c=0$ , then, $\displaystyle\lim\limits_{x\to\alpha}\frac{1-\cos(ax^2+bx+c)}{(x-a)^2}$ is equal to\hfill[2005]
+19. Let $\alpha$ and $\beta$ be the distinct roots of $ax^2+bx+c=0$ , then, $\displaystyle\lim\limits_{x\to\alpha}\frac{1-\cos(ax^2+bx+c)}{(x-a)^2}$ is equal to\hfill[2005]
 
 \begin{enumerate}
     \item $\frac{a^2}{2}(\alpha-\beta)^2$
@@ -192,7 +192,7 @@ $ \hfill [2003]
     \item $\frac{1}{2}(\alpha-\beta)^2$\\[2pt]
 \end{enumerate}
 
-\noindent 20. Suppose $f(x)$ is a differentiable at $x=1$ and $\lim\limits_{h\to 0}\frac{1}{h}f(1+h)=5$, then $f'(1)$ equals\hfill[2005]
+20. Suppose $f(x)$ is a differentiable at $x=1$ and $\lim\limits_{h\to 0}\frac{1}{h}f(1+h)=5$, then $f'(1)$ equals\hfill[2005]
 
 \begin{enumerate}
     \item 3
@@ -202,3 +202,4 @@ $ \hfill [2003]
 \end{enumerate}
  
 \end{document}
+
