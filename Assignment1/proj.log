@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.5)  6 AUG 2024 18:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.5)  10 AUG 2024 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1019,9 +1019,17 @@ tex
 ) (/usr/share/texlive/texmf-dist/tex/latex/tkz-euclide/tkz-obj-eu-triangles.tex
 2022/01/19 4.03 tkz-obj-eu-triangles.tex
 )) (./gvv.sty
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2022-01-12 L3 Experimental document command parser
-)
+
+! LaTeX cmd Error: Invalid argument type 'g' in command '\system' (requires
+(cmd)              xparse).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.110 }
+       
+? q
+OK, entering \batchmode...
 \c@matchleft=\count331
 \c@matchright=\count332
 )
@@ -1092,6 +1100,9 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box80
 \@float@everytoks=\toks49
 \@floatcapt=\box81
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2022-01-12 L3 Experimental document command parser
 )
 \c@theorem=\count341
 \c@problem=\count342
@@ -1185,8 +1196,8 @@ LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <24> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 51.
 LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <24> not available
 (Font)              Font shape `OT1/txr/bx/it' tried instead on input line 51.
-
 -- Lines per column: 50 (exact).
+
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count347
@@ -1200,7 +1211,8 @@ LaTeX Font Info:    Font shape `OT1/txr/b/it' in size <24> not available
 \MPnumerator=\count351
 \makeMPintoPDFobject=\count352
 \everyMPtoPDFconversion=\toks51
-) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
@@ -1237,8 +1249,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 51.
 LaTeX Info: Redefining \pageref on input line 51.
 LaTeX Info: Redefining \nameref on input line 51.
-
-(./proj.out) (./proj.out)
+ (./proj.out) (./proj.out)
 \@outlinefile=\write5
 \openout5 = `proj.out'.
 
@@ -1295,88 +1306,114 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--91
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+! LaTeX Error: Environment multicols undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95 \begin{multicols}
+                      {3}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
 
-Overfull \hbox (14.00708pt too wide) in paragraph at lines 102--104
+! LaTeX Error: \begin{document} ended by \end{multicols}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 \end{multicols}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (14.00708pt too wide) in paragraph at lines 104--106
 []\OT1/txr/m/n/12 10. $[] []$$\OMS/txsy/m/n/12 ^^@$$[] []$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 144--151
+Underfull \hbox (badness 1817) in paragraph at lines 146--153
 []\OT1/txr/m/n/12 15. $[]\OML/txmi/m/it/12 f\OT1/txr/m/n/12 (\OML/txmi/m/it/12 
 x\OT1/txr/m/n/12 ) = [] []$
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
 
-Overfull \hbox (16.04457pt too wide) in paragraph at lines 177--178
-[]\OT1/txr/m/n/12 18. $[] []$
+Overfull \hbox (18.04454pt too wide) in paragraph at lines 179--180
+[]\OT1/txr/m/n/12 18. $[] [] []$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
-[2
+ [2
 
 ] (./proj.aux)
 Package rerunfilecheck Info: File `proj.out' has not changed.
 (rerunfilecheck)             Checksum: 7CFB119B249E3080BF1196CE2A4FCC77;91.
  ) 
 Here is how much of TeX's memory you used:
- 29793 strings out of 478287
- 586450 string characters out of 5849290
- 863443 words of memory out of 5000000
- 47281 multiletter control sequences out of 15000+600000
+ 29792 strings out of 478287
+ 586439 string characters out of 5849290
+ 864646 words of memory out of 5000000
+ 47280 multiletter control sequences out of 15000+600000
  547416 words of font info for 200 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 101i,10n,96p,408b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,11n,96p,408b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -1385,7 +1422,7 @@ onts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on proj.pdf (2 pages, 52337 bytes).
+Output written on proj.pdf (2 pages, 52351 bytes).
 PDF statistics:
  140 PDF objects out of 1000 (max. 8388607)
  118 compressed objects within 2 object streams
