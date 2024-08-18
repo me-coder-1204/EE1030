@@ -17,8 +17,8 @@ from line.funcs import *
 from triangle.funcs import *
 from conics.funcs import circ_gen
 
-
-
+fig = plt.figure()
+ax = fig.add_subplot(111)
 
 theta = 60
 #Given points
@@ -27,6 +27,7 @@ B = np.array(([6, 4])).reshape(-1,1)
 C = np.array(([5,-6])).reshape(-1,1)
 D = np.array(([-3,5])).reshape(-1,1)
 
+points = [A,B,C,D]
 
 #Generating all lines
 x_AB = line_gen(A,B)
@@ -57,6 +58,13 @@ for i, txt in enumerate(vert_labels):
                  xytext=(25,5), # distance from text to points (x,y)
                  ha='center') # horizontal alignment can be left, right or center
 
+
+left,right = ax.get_xlim()
+low,high = ax.get_ylim()
+
+plt.arrow( -8, 0, 16,0,width=0.005,length_includes_head = True,head_width=0.3,overhang=0.5)
+plt.arrow( 0, low, 0, high-low,width=0.005,length_includes_head = True,head_width=0.3,overhang=0.5)
+
 '''
 colors = np.arange(1,5)	
 tri_coords = np.block([[A,B,C,D]])
@@ -64,11 +72,13 @@ plt.scatter(tri_coords[0,:], tri_coords[1,:], c=colors)
 '''
 
 # use set_position
-ax = plt.gca()
+#ax = plt.gca()
+'''
 ax.spines['top'].set_color('none')
 ax.spines['left'].set_position('zero')
 ax.spines['right'].set_color('none')
 ax.spines['bottom'].set_position('zero')
+'''
 '''
 ax.spines['left'].set_visible(False)
 ax.spines['right'].set_visible(False)
@@ -78,6 +88,11 @@ plt.xlabel('$x$')
 plt.ylabel('$y$')
 plt.legend(loc='best')
 '''
+
+#[ plt.plot( [dot_x,dot_x] ,[0,dot_y], '-', linewidth = 3 ) for dot_x,dot_y in  points] 
+#[ plt.plot( [0,dot_x] ,[dot_y,dot_y], '-', linewidth = 3 ) for dot_x,dot_y in points ]
+
+plt.legend(loc='upper left')
 plt.grid() # minor
 plt.axis('equal')
 
