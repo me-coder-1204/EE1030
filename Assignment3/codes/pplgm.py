@@ -21,6 +21,9 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 
 theta = 60
+
+f = open("./points.dat",r);
+
 #Given points
 A = np.array(([4, 3])).reshape(-1,1) 
 B = np.array(([6, 4])).reshape(-1,1)  
