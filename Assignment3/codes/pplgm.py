@@ -1,12 +1,3 @@
-#Code by GVV Sharma
-#September 12, 2023
-#Revised July 21, 2024
-#released under GNU GPL
-#Point Vectors
-
-
-import sys                                          #for path to external scripts
-sys.path.insert(0, '/sdcard/github/matgeo/codes/CoordGeo')        #path to my scripts
 import numpy as np
 import numpy.linalg as LA
 import matplotlib.pyplot as plt
@@ -20,10 +11,6 @@ from conics.funcs import circ_gen
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
-theta = 60
-
-f = open("./points.dat",r);
-
 #Given points
 A = np.array(([4, 3])).reshape(-1,1) 
 B = np.array(([6, 4])).reshape(-1,1)  
@@ -32,19 +19,25 @@ D = np.array(([-3,5])).reshape(-1,1)
 
 points = [A,B,C,D]
 
-#Generating all lines
-x_AB = line_gen(A,B)
-x_BC = line_gen(B,C)
-x_CD = line_gen(C,D)
-x_DA = line_gen(D,A)
-x_AC = line_gen(A,C)
-x_BD = line_gen(B,D)
+f1 = open("x_AB.dat","r")
+f2 = open("x_AC.dat","r")
+f3 = open("x_AD.dat","r")
+f4 = open("x_BC.dat","r")
+f5 = open("x_BD.dat","r")
+f6 = open("x_CD.dat","r")
+
+x_AB = np.loadtxt(open("x_AB.dat","r")).T
+x_AC = np.loadtxt(open("x_AC.dat","r")).T
+x_AD = np.loadtxt(open("x_AD.dat","r")).T
+x_BC = np.loadtxt(open("x_BC.dat","r")).T
+x_BD = np.loadtxt(open("x_BD.dat","r")).T
+x_CD = np.loadtxt(open("x_CD.dat","r")).T
 
 #Plotting all lines
 plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
 plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
 plt.plot(x_CD[0,:],x_CD[1,:],label='$CD$')
-plt.plot(x_DA[0,:],x_DA[1,:],label='$DA$')
+plt.plot(x_AD[0,:],x_AD[1,:],label='$DA$')
 plt.plot(x_AC[0,:],x_AC[1,:],label='$AC$')
 plt.plot(x_BD[0,:],x_BD[1,:],label='$BD$')
 
@@ -53,13 +46,28 @@ colors = np.arange(1,5)
 tri_coords = np.block([[A,B,C,D]])
 plt.scatter(tri_coords[0,:], tri_coords[1,:], c=colors)
 vert_labels = ['A','B','C','D']
-for i, txt in enumerate(vert_labels):
+
     #plt.annotate(txt, # this is the text
-    plt.annotate(f'{txt}\n({tri_coords[0,i]:.2f}, {tri_coords[1,i]:.2f})',
-                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(25,5), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can be left, right or center
+plt.annotate(f'A\n({tri_coords[0,0]:.2f}, {tri_coords[1,0]:.2f})',
+              (tri_coords[0,0], tri_coords[1,0]), # this is the point to label
+              textcoords="offset points", # how to position the text
+              xytext=(25,5), # distance from text to points (x,y)
+              ha='center') # horizontal alignment can be left, right or center
+plt.annotate(f'B\n({tri_coords[0,1]:.2f}, {tri_coords[1,1]:.2f})',
+              (tri_coords[0,1], tri_coords[1,1]), # this is the point to label
+              textcoords="offset points", # how to position the text
+              xytext=(25,5), # distance from text to points (x,y)
+              ha='center') # horizontal alignment can be left, right or center
+plt.annotate(f'C\n({tri_coords[0,2]:.2f}, {tri_coords[1,2]:.2f})',
+              (tri_coords[0,2], tri_coords[1,2]), # this is the point to label
+              textcoords="offset points", # how to position the text
+              xytext=(25,5), # distance from text to points (x,y)
+              ha='center') # horizontal alignment can be left, right or center
+plt.annotate(f'D\n({tri_coords[0,3]:.2f}, {tri_coords[1,3]:.2f})',
+              (tri_coords[0,3], tri_coords[1,3]), # this is the point to label
+              textcoords="offset points", # how to position the text
+              xytext=(25,5), # distance from text to points (x,y)
+              ha='center') # horizontal alignment can be left, right or center
 
 
 left,right = ax.get_xlim()
@@ -67,33 +75,6 @@ low,high = ax.get_ylim()
 
 plt.arrow( -8, 0, 16,0,width=0.005,length_includes_head = True,head_width=0.3,overhang=0.5)
 plt.arrow( 0, low, 0, high-low,width=0.005,length_includes_head = True,head_width=0.3,overhang=0.5)
-
-'''
-colors = np.arange(1,5)	
-tri_coords = np.block([[A,B,C,D]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:], c=colors)
-'''
-
-# use set_position
-#ax = plt.gca()
-'''
-ax.spines['top'].set_color('none')
-ax.spines['left'].set_position('zero')
-ax.spines['right'].set_color('none')
-ax.spines['bottom'].set_position('zero')
-'''
-'''
-ax.spines['left'].set_visible(False)
-ax.spines['right'].set_visible(False)
-ax.spines['top'].set_visible(False)
-ax.spines['bottom'].set_visible(False)
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-'''
-
-#[ plt.plot( [dot_x,dot_x] ,[0,dot_y], '-', linewidth = 3 ) for dot_x,dot_y in  points] 
-#[ plt.plot( [0,dot_x] ,[dot_y,dot_y], '-', linewidth = 3 ) for dot_x,dot_y in points ]
 
 plt.legend(loc='upper left')
 plt.grid() # minor
@@ -104,3 +85,11 @@ plt.savefig('../figs/fig1.png')
 
 
 plt.show()
+
+
+f1.close()
+f2.close()
+f3.close()
+f4.close()
+f5.close()
+f6.close()

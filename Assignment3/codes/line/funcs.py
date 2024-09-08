@@ -28,6 +28,7 @@ def line_gen(A,B):
   for i in range(len):
     temp1 = A + lam_1[i]*(B-A)
     x_AB[:,i]= temp1.T
+    print(x_AB[:,i])
   return x_AB
 
 #Generating line in 2D using normal form
