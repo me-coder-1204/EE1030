@@ -28,4 +28,8 @@ int main(void){
 	line_gen(B,C,10,2,"./x_BC.dat");
 	line_gen(B,D,10,2,"./x_BD.dat");
 	line_gen(C,D,10,2,"./x_CD.dat");
+
+	for(int i = 0;i<10;i++){
+		fprintf("%lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf\n",A[0][0]+(B[0][0]-A[0][0])*i/(double)len,A[0][0]+(B[0][0]-A[0][0])*i/(double)len,A[0][0]+(B[0][0]-A[0][0])*i/(double)len,A[0][0]+(B[0][0]-A[0][0])*i/(double)len,)
+	}
 }
