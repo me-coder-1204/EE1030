@@ -19,19 +19,29 @@ D = np.array(([-3,5])).reshape(-1,1)
 
 points = [A,B,C,D]
 
-f1 = open("x_AB.dat","r")
-f2 = open("x_AC.dat","r")
-f3 = open("x_AD.dat","r")
-f4 = open("x_BC.dat","r")
-f5 = open("x_BD.dat","r")
-f6 = open("x_CD.dat","r")
+f = open("lines.dat","r")
 
-x_AB = np.loadtxt(open("x_AB.dat","r")).T
-x_AC = np.loadtxt(open("x_AC.dat","r")).T
-x_AD = np.loadtxt(open("x_AD.dat","r")).T
-x_BC = np.loadtxt(open("x_BC.dat","r")).T
-x_BD = np.loadtxt(open("x_BD.dat","r")).T
-x_CD = np.loadtxt(open("x_CD.dat","r")).T
+lines = np.loadtxt(f)
+
+x_AB = np.zeros((2,11))
+x_AC = np.zeros((2,11))
+x_AD = np.zeros((2,11))
+x_BC = np.zeros((2,11))
+x_BD = np.zeros((2,11))
+x_CD = np.zeros((2,11))
+
+x_AB[0,:] = lines[:,0]
+x_AB[1,:] = lines[:,1]
+x_AC[0,:] = lines[:,2]
+x_AC[1,:] = lines[:,3]
+x_AD[0,:] = lines[:,4]
+x_AD[1,:] = lines[:,5]
+x_BC[0,:] = lines[:,6]
+x_BC[1,:] = lines[:,7]
+x_BD[0,:] = lines[:,8]
+x_BD[1,:] = lines[:,9]
+x_CD[0,:] = lines[:,10]
+x_CD[1,:] = lines[:,11]
 
 #Plotting all lines
 plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
@@ -87,9 +97,4 @@ plt.savefig('../figs/fig1.png')
 plt.show()
 
 
-f1.close()
-f2.close()
-f3.close()
-f4.close()
-f5.close()
-f6.close()
+f.close()
