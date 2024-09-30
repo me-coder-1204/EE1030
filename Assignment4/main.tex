@@ -70,9 +70,8 @@
 
 Given,
 
-\begin{align}\norm{{AB}} &= d\\\norm{{AB}}^2 &= d^2\\AB^tAB &= d^2\\\brak{x-x_A}^2 + \brak{y_B - y_A}^2 &= d^2\end{align}
+\begin{align}\norm{{AB}} = d\\\norm{{AB}}^2 = d^2\\AB^tAB = d^2\\\brak{\myvec{1 & 0\\0 & 0}\brak{\vec{B}-\vec{A}}+\myvec{0 & 0\\0 & 1}\brak{\vec{B}-\vec{A}}}^\top\brak{\myvec{1 & 0\\0 & 0}\brak{\vec{B}-\vec{A}}+\myvec{0 & 0\\0 & 1}\brak{\vec{B}-\vec{A}}} = d^2\\\brak{\vec{B}-\vec{A}}^\top\myvec{1 & 0\\0 & 0}\brak{\vec{B}-\vec{A}} + \brak{\vec{B}-\vec{A}}^\top\myvec{0 & 0\\0 & 1}\brak{\vec{B}-\vec{A}} = d^2\\\brak{\vec{B}-\vec{A}}^\top \vec{e_1} \vec{e_1}^\top\brak{\vec{B}-\vec{A}} + \brak{\vec{B}-\vec{A}}^\top\vec{e_2}\vec{e_2}^\top\brak{\vec{B}-\vec{A}} = d^2\\\norm{\vec{e_1}^\top\brak{\vec{B}-\vec{A}}}^2 + \norm{\vec{e_2}^\top\brak{\vec{B}-\vec{A}}}^2 = d^2\\\vec{e_1}^\top\vec{B} = \vec{e_1}^\top\vec{A} + \sqrt{d^2 - \brak{\vec{e_2}^\top\brak{\vec{B}-\vec{A}}}}\end{align}
 Solving,\\
-\begin{align}x &= x_A \pm \sqrt{d^2 - \brak{y_B - y_A}^2}\end{align}
 	\begin{align}x = 3  \text{ (or) }  x = -3\end{align}
 
 \begin{figure}[h]
