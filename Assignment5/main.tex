@@ -1,4 +1,4 @@
-\let\negmedspace\undefined
+
 \let\negthickspace\undefined
 \documentclass[journal]{IEEEtran}
 \usepackage[a5paper, margin=10mm, onecolumn]{geometry}
@@ -79,10 +79,14 @@ we can find the points of intersection of the given lines and the conic in the f
 \begin{align}
     \vec{a_1} = \myvec{2\sqrt{2}\\2}, \vec{a_2} = \myvec{4\\4}
 \end{align}
-
+Calculating $A_1 \text{ and } A_2$,
+\begin{align}
+    A_1 = \int_{0}^{4} \frac{x^2}{4} dx = \frac{16}{3}\\
+    A_2 = \int_{0}^{2\sqrt{2}} \frac{x^2}{4} dx = \frac{4\sqrt{2}}{3}
+\end{align}
 Thus, the area of the parabola between the lines $y = 2$ and $y = 4$ is,
 \begin{align}
-    \int_{0}^{4} 4-\frac{x^2}{4} dx - \int_{0}^{2\sqrt{2}} 2-\frac{x^2}{4} dx = \frac{32 - 8\sqrt{2}}{3}
+    (\int_{0}^{4} 4 dx - A_1) - (\int_{0}^{2\sqrt{2}} 2 dx - A_2) = \frac{32 - 8\sqrt{2}}{3}
 \end{align}
 
 \begin{figure}[h]
