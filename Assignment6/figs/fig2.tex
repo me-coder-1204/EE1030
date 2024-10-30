@@ -1,0 +1,63 @@
+\begin{tikzpicture}
+
+% Define parameters
+\def\zigzag{0.15} % Height of zigzag spring
+\def\springlen{1.5} % Length of each spring segment
+\def\masswidth{1}   % Width of the mass box
+\def\massheight{1}  % Height of the mass box
+\def\wheelradius{0.15} % Radius of the wheels
+
+
+% Function to draw a zigzag spring
+\newcommand{\drawzigzagspring}[2]{
+  \foreach \i in {0,1,...,5}
+  {
+    \draw[thick] (#1+\i*\springlen/6,0.75+\zigzag) -- ++(\springlen/12,-2*\zigzag) -- ++(\springlen/12,2*\zigzag);
+  }
+}
+
+% Ground line
+\draw[thick] (0,0.05) -- (2,0.05);
+
+\draw[thick] (2.5,0.05) -- (4.5,0.05);
+% Left wall
+\draw[thick] (-1,0) -- (-1,1.5);
+
+% Left spring
+\drawzigzagspring{-1}{0.5}
+
+% Left mass (mass m)
+\draw[thick] (0.5,0.25) rectangle ++(\masswidth,\massheight);
+\node at (1,0.75) {$m$};
+
+% Middle spring
+\drawzigzagspring{1.5}{3}
+
+% Right mass (mass 3m)
+\draw[thick] (3,0.25) rectangle ++(\masswidth,\massheight);
+\node at (3.5,0.75) {$3m$};
+
+% Right spring
+\drawzigzagspring{4}{5.5}
+
+% Right wall
+\draw[thick] (5.5,0) -- (5.5,1.5);
+
+% Labels
+\node at (-0.25,1.25) {$k$};
+\node at (2.25,1.25) {$k$};
+\node at (4.75,1.25) {$k$};
+
+% Arrows for x1 and x2
+\draw[->] (1,1.5) -- ++(0.5,0) node[right] {$x_1$};
+\draw[->] (3.5,1.5) -- ++(0.5,0) node[right] {$x_2$};
+
+\fill (3.25,0.25) circle (\wheelradius);
+\fill (3.75,0.25) circle (\wheelradius);
+
+% Left mass wheels
+\fill (0.75,0.25) circle (\wheelradius);
+\fill (1.25,0.25) circle (\wheelradius);
+
+\end{tikzpicture}
+

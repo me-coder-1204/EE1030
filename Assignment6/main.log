@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.9.25)  27 OCT 2024 02:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.9.25)  30 OCT 2024 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1987,19 +1987,52 @@ LaTeX Font Info:    Trying to load font information for TS1+txr on input line 6
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texm
-f-dist/fonts/enc/dvips/base/8r.enc}
+)
+
+! LaTeX Error: Environment wrapfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118         \begin{wrapfigure}
+                                
+? 
+(./figs/fig2.tex)
+
+! LaTeX Error: \begin{enumerate} on input line 67 ended by \end{wrapfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121         \end{wrapfigure}
+                              \hfill
+? 
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}
 
 ]
 
+! LaTeX Error: Environment wrapfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143 \begin{wrapfigure}
+                        
+? 
+(./figs/fig1.tex
+
 ! Package tikz Error: A node must have a (possibly empty) label text.
 
 See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.244     \end{axis}
-                    
+l.43     \end{axis}
+                   
 ? 
 
 ! Package tikz Error: A node must have a (possibly empty) label text.
@@ -2008,8 +2041,8 @@ See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.244     \end{axis}
-                    
+l.43     \end{axis}
+                   
 ? 
 
 ! Package tikz Error: A node must have a (possibly empty) label text.
@@ -2018,8 +2051,8 @@ See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.244     \end{axis}
-                    
+l.43     \end{axis}
+                   
 ? 
 
 ! Package tikz Error: A node must have a (possibly empty) label text.
@@ -2028,8 +2061,19 @@ See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.244     \end{axis}
-                    
+l.43     \end{axis}
+                   
+? 
+)
+
+! LaTeX Error: \begin{enumerate} on input line 67 ended by \end{wrapfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 \end{wrapfigure}
+                      
 ? 
 [2] [3] [4] (./main.aux)
 
@@ -2039,20 +2083,20 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 62106 strings out of 476041
- 1566795 string characters out of 5793164
- 2260380 words of memory out of 6000000
- 81547 multiletter control sequences out of 15000+600000
+ 62118 strings out of 476041
+ 1566967 string characters out of 5793164
+ 2260381 words of memory out of 6000000
+ 81552 multiletter control sequences out of 15000+600000
  578877 words of font info for 167 fonts, out of 8000000 for 9000
  1140 hyphenation exceptions out of 8191
- 109i,10n,107p,1194b,2167s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,10n,107p,1194b,2204s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 71649 bytes).
+Output written on main.pdf (4 pages, 71629 bytes).
 PDF statistics:
  207 PDF objects out of 1000 (max. 8388607)
  169 compressed objects within 2 object streams
