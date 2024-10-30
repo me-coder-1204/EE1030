@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.9.25)  30 OCT 2024 16:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.9.25)  30 OCT 2024 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2020,7 +2020,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.143 \begin{wrapfigure}
+l.141 \begin{wrapfigure}
                         
 ? 
 (./figs/fig1.tex
@@ -2072,7 +2072,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 \end{wrapfigure}
+l.144 \end{wrapfigure}
                       
 ? 
 [2] [3] [4] (./main.aux)
@@ -2096,10 +2096,10 @@ exmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 71629 bytes).
+Output written on main.pdf (4 pages, 70996 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
+ 205 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
  90 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
