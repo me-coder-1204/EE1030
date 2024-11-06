@@ -64,7 +64,7 @@ columns=fullflexible
 
 \numberwithin{equation}{section}
 
-\title{Presentation Template}
+\title{Finding Area of a Bound Region Using Matrices}
 \author{S A Aravind Eswar - EE24BTECH11053}
 
 \date{\today} 
@@ -99,10 +99,10 @@ and the y-axis in the first quadrant.
     \frametitle{Finding equation of conic}
 
     \begin{align}
-        x^2 = 4y\\
+        x^2 &= 4y\\
         \vec{V} &= \myvec{1 & 0\\ 0 & 0}\\
-        \vec{u} &= \myvec{0\\2}
-        f &= 0
+        \vec{u} &= \myvec{0\\2}\\
+        f &= 0\\
         g(\vec{x}) &= x^\top\myvec{1 & 0\\0 & 0}\vec{x} + 2\myvec{0\\2}^\top\vec{x} = 0
     \end{align}
 \end{frame}
@@ -176,5 +176,13 @@ A = \brak{\int_0^4 4 dx - A_1} - \brak{\int_0^{2\sqrt{2}}2 dx - A_2} = \frac{32-
         tabsize=4
     }
     \lstinputlisting{./codes/plot.py}
+
+    The codes in: 
+    {\footnotesize
+        \begin{lstlisting}
+https://github.com/me-coder-1204/EE1030/blob/main/Assignment5/codes/plot.py
+https://github.com/me-coder-1204/EE1030/blob/main/Assignment5/codes/points.c
+        \end{lstlisting}
+    }
 \end{frame}
 \end{document}

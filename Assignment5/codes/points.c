@@ -22,7 +22,7 @@ double*** inter(double** m, double** h, double* kap){
     double** x1 = Matsub(h,Matscale(m,2,1,kap[0]),2,1);
     double** x2 = Matsub(h,Matscale(m,2,1,kap[1]),2,1);
 
-    double*** x; malloc(2*sizeof(*x));
+    double*** x;x =  malloc(2*sizeof(*x));
     x[0] = x1;
     x[1] = x2;
     return x;

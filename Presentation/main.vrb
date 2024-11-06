@@ -20,3 +20,11 @@
         tabsize=4
     }
     \lstinputlisting{./codes/plot.py}
+
+    The codes in:
+    {\footnotesize
+        \begin{lstlisting}
+https://github.com/me-coder-1204/EE1030/blob/main/Assignment5/codes/plot.py
+https://github.com/me-coder-1204/EE1030/blob/main/Assignment5/codes/points.c
+        \end{lstlisting}
+    }
