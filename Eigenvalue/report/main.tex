@@ -1,0 +1,287 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=15mm, onecolumn]{geometry}
+%\usepackage{lmodern} % Ensure lmodern is loaded for pdflatex
+\usepackage{tfrupee} % Include tfrupee package
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+% \setlength{\headsep}{0mm}     % Set the distance between the header box and the top of the text
+
+\usepackage{gvv-book}
+\usepackage{gvv}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algpseudocodex}
+% \usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} 
+\usepackage{listings}
+% \usepackage{gvv}                                        
+\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                       
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}                                           
+\usepackage{lscape}
+\usepackage{listing}
+% \usepackage{algpseudocodex}
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\bibliographystyle{IEEEtran}
+\vspace{5cm}
+
+\title{A Study about QR Algorithm Using Givens Rotations}
+\author{EE24BTECH11053 - S A Aravind Eswar
+}
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+% {\let\newpage\relax\maketitle}
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\setlength{\intextsep}{15pt} % Space between text and floats
+
+
+% \numberwithin{equation}{enumi}
+\numberwithin{figure}{enumi}
+\renewcommand{\thetable}{\theenumi}
+
+% \begin{theindex}
+%     \item \subheading{Abstract}
+%     \indexspace
+%     \item subheading{Introduction}
+%     \indexspace
+%     \item Givens Rotations
+%         \Performing QR decomposition with Givens rotation
+%         \subitem Why Givens?
+%         \subitem Optimizaions
+%             \subsubitem Multiplications
+%             \subsubitem Parallelizaion
+%     \indexspace
+%     \item The QR Algorithm
+%         \subitem Why QR Algorithm?
+%         \subitem Optimizations
+%             \subsubitem Shifts
+%             \subsubitem Deflation
+%     \indexspace
+%     \item Conclusion
+%     \item Bibliography
+% \end{theindex}
+
+\tableofcontents
+\newpage
+
+\section{Abstract}
+
+Matrices are an important tool for for performings calculations in a variety of applications. And the eigenvalues of the matrices have a wide variety of applications from AI and ML to Molecular Physics. There are multiple algorithms to compute the eigenvalues of a given matix. We shall look into the QR Algorithm using Givens Rotations and discuss about it's pros and cons and implement the algorithms.
+
+\section{Introduction}
+
+Matrices are an important tool for for performings calculations in a variety of applications. And the eigenvalues of the matrices have a wide variety of applications from AI and ML to Molecular Physics. There are multiple algorithms to compute the eigenvalues of a given matix. The most widely used algorithm for computing the eigenvalues is the QR algorithm or QR iteration algorithm. Other widely used algorithms include the Power interation algorithm, Inverse interation algorithm and so on. To perform the said QR decomposition for the QR algorithm, we are going to look into the method of Given's rotation. There are other algorithms that can perform QR decomposition such as the Gram-Schmidt algorithm and Householder transformations and so on. The reasons of choosing the said algorithms will be discussed in the later sections.
+
+\section{Given's Rotations}
+
+Givens rotaiton is a rotation in a plane spanned by 2 coordinate axes in a $\mathbb{R}^n$ space. Let a vector $\vec{x}$ in $\mathbb{R}^n$ to be rotated in the plane $(i, j)$ by an angle of $\theta$. Then,
+\begin{align}
+    \vec{x_r} &= G(i, j, \theta) \vec{x}
+\end{align}
+is the vector produced after rotation and the matrix $G(i,j,\theta)$ is given by,
+\begin{align}
+    G(i,j,\theta) &= \myvec{1 & \cdots & 0 & \cdots & 0 & \cdots & 0\\\vdots & \ddots & \vdots & & \vdots & & \vdots \\0 & \cdots & c & \cdots & s & \cdots & 0 \\ \vdots & & \vdots & \ddots & \vdots & & \vdots \\ 0 & \cdots & -s & \cdots & c & \cdots & 0 \\ \vdots & & \vdots & & \vdots & \ddots & \vdots \\0 & \cdots & 0 & \cdots & 0 & \cdots & 1}\\
+    G_{kk} = 1 & \text{ for } k \neq i, j\\
+    G_{kk} = c & \text{ for } k = i, j\\
+    G_{ij} = -&G_{ji} = s\\
+    &\text{or 0 otherwise}
+\end{align}
+where,
+The rotation can be scalted to $\mathbb{C}^n$ by replacing $G_{jj}$ with $\bar{c}$ and $G_{ji}$ with $-\bar{s}$
+\subsection{Performing QR decomposition with Givens Rotation}
+
+Let A be a $n\times n$ matrix in $\mathbb{C}$. We can use Givens rotation to make exactly one of the coordinates of $\vec{A}$ as 0.\\
+Then,
+\begin{align}
+    A = \myvec{A_{ij}}, A_{ij} \in \mathbb{C}\\
+\end{align}
+Let,
+\begin{align}
+    \vec{G}(p,q) &= \myvec{1 & \cdots & 0 & 0 & \cdots & 0\\ \vdots & \ddots & \vdots & \vdots & & \vdots \\ 0 & \cdots & c & s & \cdots & 0\\ 0 & \cdots & -s & c & \cdots & 0\\ \vdots & & \vdots & \vdots & \ddots & \vdots \\ 0 & \cdots & 0 & 0 & \cdots & 1} \\
+    G_{kk} &= 1  \text{ for } k \neq i, j\\
+    G_{p,p} &= \overline{G}_{p-1,p-1} = c\\
+    \overline{G}_{p-1,p} &= -G_{p,p-1} = s\\
+    &\text{or 0 otherwise}
+\end{align}
+where,
+
+\begin{align}
+    r &= \sqrt{\vec{A}_{p,q}^2 + \vec{A}_{p-1, q}^2}\\
+    c &= \vec{A}_{p,q}/r\\
+    s &= \vec{A}_{p-1,q}/r
+\end{align}
+
+Then,
+
+\begin{align}
+    \vec{A_1} = \vec{G}(p, q)\vec{A}
+\end{align}
+
+will make $A_{p, q}$ zero.
+
+Performing another rotation on $\vec{A_{1,1}}$ and so on,
+\begin{align}
+    \vec{G}(1,2)\vec{G}(1, 3) \cdots \vec{G}(n, n-1)\vec{A} = \vec{R}
+\end{align}
+where $R$ is an Upper Triangular Matrix. Then let,
+\begin{align}
+    \vec{Q}^\top &= \vec{G}(1,2)\vec{G}(1,3) \cdots \vec{G}(n, n-1)\\
+    \vec{Q} &= {(\vec{G}(1,2)\vec{G}(1,3) \cdots \vec{G}(n, n-1))}^\top\\
+    \vec{Q} &= \vec{G}^\top(n,n-1)\vec{G}^\top(n,n-1) \cdots \vec{G}^\top(1,2)
+\end{align}
+Then,
+\begin{align}
+    \vec{A} = \vec{Q}\vec{R}
+\end{align}
+
+
+% \textit{Code for generating G matrix}
+% \textit{Code for decomposition:}
+% \lstset{
+%         language = C,
+%         basicstyle=\ttfamily\small,
+%         keywordstyle=\color{blue},
+%         stringstyle=\color{green},
+%         commentstyle=\color{gray},
+%         tabsize=4
+%     }
+% \lstinputlisting{./code_snips/Qrdec.c}
+
+\subsection{Analysis of the Givens algorithm}
+
+Givens rotation of a matrix has a property where it only modifies only 2 of the columns of a matrix. This makes it more numerically stable, unlike Gram-Schmidt which is not very stable numerically. This also comes with a perk of being more parallaizable than other algorithms like Householder transformations. 
+
+Givens Algorithm is not too efficient for a dense matrix as it doesn't have many zero entries to skip over. But it is more efficient when it comes to sparse matrix when compared to Householder, which is more efficient when it comes to dense matrix.
+
+The time complexity of the Givens algorithm is $O(n^3)$, which is similar to other algorithms for QR decomposition.
+
+\subsection{Algorithm}
+
+\begin{algorithmic}[1]
+    \State Let $\vec{A}_{m \times m}$
+    \State $\vec{Q} \gets \vec{I}_{n \times n}$
+    \State $\vec{R} \gets \vec{A}$
+    \For{$i = 0, 1, \dots n-1$}
+        \For{$j = n-1, n-2, \dots, i+1$}
+            \If{$\abs{\vec{R}(j,i)}\neq 0$}
+                \State $\text{Generate } \vec{G}(j , i)$
+                \State $\vec{Q} \gets \vec{Q}\vec{G}^\top(j, i)$
+                \State $\vec{R} \gets \vec{G}(j ,i )\vec{R}$
+            \EndIf
+        \EndFor
+    \EndFor
+    \Return {$\vec{Q},\vec{R}$}
+\end{algorithmic}
+
+\section{QR iteration algorithm}
+
+QR Iteration algorithm as discussed is a widely used algorithm. It works on the principle of converging a matrix to it's Schur form and extracting eigenvalues from it. 
+
+\begin{align}
+    \vec{A}_{k-1} &= \vec{Q}\vec{R}\\
+    \vec{A}_k &= \vec{R}\vec{Q}\\
+    \vec{A}_k &= \vec{Q}^\top\vec{R}\vec{Q}
+\end{align}
+
+
+Eventually $\vec{A_k}$ will converge to the Schur form of $\vec{A}$, where is a $n \times n$ matrix in $\mathbb{C}$ 
+
+\subsection{Analysis of the QR algorithm}
+
+QR rotation theoretically is an infinitely iterating algorithm. But for it to converge to machine level precision, it takes it about $O(n^3)$ time to converge to the Schur form. The convergence rate can be accelerated but using techniques like Hessenberg reduction and Shifts.
+
+\subsection{Hessenberg reduction}
+
+Hessenberg matrix is where all the elements below the lower sub-diagonal is all zero.
+
+We can write, 
+
+\begin{align}
+    \vec{H}_0 = \vec{U}^\top_0\vec{A}\vec{U}
+\end{align}
+
+where $\vec{H}_0$ is Hessenberg matrix. We can show that both $\vec{H}_0$ and $\vec{A}$ and identical and thus have the same eighenvalues. 
+
+Performing QR decomposition for the Hessenberg matrix is much faster ($O(n^2)$) as the number of calculations is much less. 
+But Hessenberg transformations can only used when $A_{i,j} \in \mathbb{R}$
+\subsection{Shifts}
+Let,
+\begin{align}
+    \mu &\to \mathbb{R}\\
+    \vec{Q}\vec{R} &= \vec{A}_{k-1} - \mu\vec{I}\\
+    \vec{A}_k &= \vec{R}\vec{Q} + \mu\vec{I}
+\end{align}
+
+This is called shifting. There are 2 ways of selecting the shift value $\mu$
+\subsubsection{Raleigh Shift} If $\vec{A}_k$ is a Hessenberg matrix of size $n \times n$ , then $\mu = \vec{A}_k(n,n)$
+\subsubsection{Wilkinson Shift} If $\vec{A}_k$ is a Hessenberg matrix of size $n \times n$ then $\mu$ is determined based on the eigenvalues of bottom right most $2\times 2$ matrix of $\vec{A}_k$ (let $a_k$ and $b_k$). If both $a_k$ and $b_k$ are real, then the smallest of $\abs{a_k - A_k(n,n)}$ and $\abs{b_k - A_k(n,n)}$ is taken. Else if both are conjugate pairs of each other, then $\mu = \mathbb{R}(a_k)$.
+
+Shifting accelerates the process of convergence of the eigenvalues.
+
+\subsection{Algorithm}
+
+\begin{algorithmic}
+    \State{$\vec{H}_k \gets \vec{U}^\top \vec{A}\vec{U}$}
+    \For{$i = 1, 2, \dots$}
+        \State{Compute $\mu$}
+        \State{$\vec{Q}\vec{R} \gets \vec{H}_k-\mu\vec{I}$}
+        \State{$\vec{H}_k \gets \vec{R}\vec{Q} + \mu\vec{I}$}
+    \EndFor
+    \Return $H_k$
+\end{algorithmic}
+
+\section{Extracting eigenvalues after performings the QR algorithm}
+If $\vec{A}$ has Complex eigenvalues, QR algorithm will not converge to a completely upper triangular matrix. But rather "blocks" of size $2 \times 2$ present along the diagonal. The eigenvalues of the blocks are also eigenvalues of $\vec{A}$.
+
+We can compute it using the following algorithm
+
+\begin{algorithmic}
+    \State{Let $A_k$}
+    \State{Let $eigs$ be array of eigenvalues}
+    \While{$i<n$}
+        \If{$i=n or \abs(A_k(i+1,i) =0)$}
+            \State{$eigs[i] \gets A_k(i,i)$}
+        \Else
+            \State{Find eigenvalues of the $2\times 2$ spanning from $A_k(i,i)$ to $A_k(i+1,i+1)$ and let them be $e1$ and $e2$}
+            \State{$eigs[i] \gets e1$}
+            \State{$eigs[i+1] \gets e2$}
+            \State{$i\gets i+1$}
+        \EndIf
+        \State{$i\gets i+1$}
+    \EndWhile
+    \Return $eigs$
+\end{algorithmic}
+
+\section{Conclusion}
+We discussed about how to find eigenvalues of a Real $n \times n$ matrix using the QR algorithm
+
+\end{document}  
+
