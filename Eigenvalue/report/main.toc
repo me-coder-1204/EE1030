@@ -14,3 +14,5 @@
 \contentsline {subsection}{\numberline {4.5}Extracting eigenvalues after performings the QR algorithm}{9}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Comparing Different Methods of Optimizations of QR iteration Algorithm}{10}{subsection.4.6}%
 \contentsline {section}{\numberline {5}Conclusion}{10}{section.5}%
+\contentsline {section}{\numberline {6}Bibliograpy}{10}{section.6}%
+\contentsline {section}{References}{10}{section*.3}%
