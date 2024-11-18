@@ -35,8 +35,8 @@ void hessenberg(double complex** A, int m, double complex*** Hq){
     double cpu_time_used;
     start = clock();
     double complex** q = eye(m);
-    double complex** H = malloc(m * sizeof(double complex*));
-    memcpy(H, A, m *sizeof(double complex*));
+    double complex** H = createMat(m,m);
+    copyMat(A, H, m , m);
     int conv = 1;
     double complex** G; double complex** Gt;
     // #pragma omp for
@@ -55,12 +55,14 @@ void hessenberg(double complex** A, int m, double complex*** Hq){
             }
         }
     }
-    Hq[0] = H; Hq[1] = q;
+    // Hq[0] = H; Hq[1] = q;
     // freeMat(Q,m); freeMat(R,m);
     // memcpy(Hq[0], H, m*sizeof(double complex*));
     // memcpy(Hq[1], q, m*sizeof(double complex*));
-
-    // freeMat(H, m);
+    copyMat(H, Hq[0], m , m);
+    copyMat(q, Hq[1], m, m);
+    freeMat(H, m);
+    freeMat(q, m);
     end = clock();
     printf("%lf\n", (double) (end-start)/CLOCKS_PER_SEC);
 
@@ -80,7 +82,7 @@ double complex wilkinsonCooef(double complex** A, int m){
         v = creal(eig[0]);
     }
     free(eig);
-    freeMat(Asl, m);
+    freeMat(Asl, 2);
     return v;
     // double complex sig = (A[m-2][m-2] - A[m-1][m-1])/2
     // double complex mu = A[m-1][m-1] - (sig/cabs(sig))*()
@@ -92,8 +94,8 @@ void QRdec(double complex** A, int m, double complex*** QR){
     // double cpu_time_used;
     // start = clock();
     double complex** Q = eye(m);
-    double complex** R = malloc(m * sizeof(double complex*));
-    memmove(R, A, m * sizeof(A[0]));
+    double complex** R = createMat(m ,m);
+    copyMat(A, R, m, m);
     int conv = 1;
     double complex** G; double complex** Gt;
     // #pragma omp for
@@ -173,14 +175,15 @@ double complex* eigs(double complex** A, int m){
     return eigs;
 }
 
-#pragma omp parallel num_threads(8)
+#pragma omp parallel num_threads(4)
 int checkConv(double complex** Ak, double complex** AkP, int m){
     double complex change=0+0*I;
     double complex* e1 = eigs(Ak, m);
     double complex* e2 = eigs(AkP, m);
     #pragma omp for
     for(int i=0;i<m;i++){
-        change += e1[i] - e2[i];
+        // change += (AkP[i][i] - Ak[i][i])*(AkP[i][i] - Ak[i][i]);
+        change += (cabs(e1[i]) - cabs(e2[i]))*(cabs(e1[i]) - cabs(e2[i]));
         // for(int j=m-1;j>i+1;j--){
         //     change+=AkP[j][i]-Ak[j][i];
         //     // printf("ll %lf %lf\n",cabs(change), creal(AkP[j][i]-Ak[j][i]));
@@ -192,35 +195,49 @@ int checkConv(double complex** Ak, double complex** AkP, int m){
     // printf("%lf\n",creal(change));
     // printMat(Ak,m,m);printf("\n");
     // printMat(AkP,m,m);printf("\n");
+    for(int i=0;i<m;i++) printf("%lf ",creal(e1[i]));
+    printf("\n");
+    // for (int i = 0; i < m; i++) printf("%lf ", creal(e2[i]));
+    // printf("\n");
     free(e1);free(e2);
-    if(cabs(change)<1.0e-6) return 1;
+    if(cabs(change)<1.0e-10) return 1;
     return 0;
 }
 
 double complex** QReig(double complex** A, int m){
-    double complex** Ak = createMat(m, m);
+    double complex** Ak = createMat(m,m);
     double complex** AkP = createMat(m ,m); 
-    memcpy(Ak, A, m * sizeof(double complex*));
+    copyMat(A, Ak, m ,m );
+    // memcpy(Ak, A, m * sizeof(double complex*));
     // memcpy(AkP, A, m * sizeof(double complex*));
     copyMat(Ak, AkP, m, m);
     double complex*** QR = malloc(2 * sizeof(double complex**));
     // QR *qr = malloc(sizeof(QR));
     int conv = 0;
-    for(int i=0;i<1000;i++){
-        printf("%d\n",i);
-        double complex wilk = wilkinsonCooef(Ak, m);
+    int iterations=0;
+    for(int i=0;conv!=1 && i<m*m*m;i++){
+        // printf("%d\n",i);
+        iterations++;
+        // double complex wilk = wilkinsonCooef(Ak, m);
+        // double complex** shif = eye(m);
+        // scale(shif, -wilk, m , m, shif);
+        // matAdd(Ak, shif, m, m, Ak);
         QRdec(Ak, m, QR);
         matMul(QR[1],QR[0], m, m, m, Ak);
+        // scale(shif, -1, m , m, shif);
+        // matAdd(Ak, shif, m , m, Ak);
         conv = checkConv(Ak, AkP, m);
-        memcpy(AkP, Ak, m * sizeof(double complex*));
+        copyMat(Ak, AkP, m , m);
         // printf("ballin\n");
         // printMat(QR[1],m,m);
+        // freeMat(shif, m);
         freeMat(QR[0],m);
         freeMat(QR[1],m);
         // printf("ja\n");
     }
-    free(AkP);
+    freeMat(AkP, m);
     if(QR!=NULL) free(QR);
+    printf("%d\n",iterations);
     return Ak;
 }
 

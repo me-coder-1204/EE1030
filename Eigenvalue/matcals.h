@@ -42,8 +42,9 @@ void matAdd(double complex** A, double complex** B, int m, int n, double complex
             C[i][j] = A[i][j] + B[i][j];
         }
     }
-    memcpy(D, C, m * sizeof(double complex*));
-    freeMat(C,m);
+    copyMat(C, D, m ,n);
+    freeMat(C, m);
+    // free(C);
 }
 
 #pragma omp parallel num_thread(4)
@@ -61,10 +62,10 @@ void matMul(double complex** A, double complex** B, int m, int p, int n, double 
             for(int k=0;k<n;k++) C[i][k] += A[i][j] * B[j][k];
         }
     }
-    memcpy(D, C, m * sizeof(double complex*));
+    copyMat(C, D, m , n);
     // printMat(D, m, n);
-    // freeMat(C,m);
-    free(C);
+    freeMat(C,m);
+    // free(C);
 }
 
 // #pragma omp parallel num_thread(4)
@@ -157,8 +158,8 @@ double complex** inner(double complex** A, double complex** B, int m){
 }
 
 // #pragma omp parallel num_threads(4)
-double complex** scale(double complex** A, double complex x, int m, int n){
-    double complex** C = createMat(m ,n);
+void scale(double complex** A, double complex x, int m, int n, double complex** C){
+    // double complex** C = createMat(m ,n);
 
     #pragma omp for
     for(int i=0;i<m;i++){
@@ -166,8 +167,8 @@ double complex** scale(double complex** A, double complex x, int m, int n){
             C[i][j] = x * A[i][j];
         }
     }
-
-    return C;
+    return;
+    // return C;
 }
 
 double complex trace(double complex** A, int m){

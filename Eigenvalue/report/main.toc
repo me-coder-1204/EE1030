@@ -5,11 +5,12 @@
 \contentsline {subsection}{\numberline {3.2}Analysis of the Givens algorithm}{4}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Algorithm}{4}{subsection.3.3}%
 \contentsline {section}{\numberline {4}QR iteration algorithm}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Analysis of the QR algorithm}{5}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Hessenberg reduction}{5}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Shifts}{5}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Raleigh Shift}{5}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Wilkinson Shift}{5}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Algorithm}{5}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Extracting eigenvalues after performings the QR algorithm}{6}{section.5}%
-\contentsline {section}{\numberline {6}Conclusion}{6}{section.6}%
+\contentsline {subsection}{\numberline {4.1}Working of QR algorithm}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Hessenberg reduction}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Shifts}{8}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Raleigh Shift}{8}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Wilkinson Shift}{8}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Algorithm}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Extracting eigenvalues after performings the QR algorithm}{9}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Comparing Different Methods of Optimizations of QR iteration Algorithm}{10}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}%
