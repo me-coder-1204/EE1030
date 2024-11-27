@@ -1,0 +1,27 @@
+% \resizebox{h-length}{v-length}{text}
+\begin{figure}[h]
+    \centering
+    \resizebox{0.5\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\normalsize]
+    \draw [line width=2pt, short] (0,17.5) -- (0,17.5);
+    \draw [ fill={rgb,255:red,154; green,153; blue,150} , line width=0.2pt ] (0,18.75) rectangle (4.5,12.5);
+    \draw [line width=2pt, short] (0,18.75) -- (0,12.5);
+    \draw [line width=2pt, short] (4.5,18.75) -- (4.5,12.5);
+    \draw [line width=2pt, <->, >=Stealth] (0,13.75) -- (4.5,13.75);
+    \draw [line width=2pt, ->, >=Stealth] (-2.5,15) -- (0,15);
+    \draw [line width=2pt, ->, >=Stealth] (5,15) -- (7.5,15);
+    \node [font=\normalsize] at (-2.5,15.75) {$I_0$};
+    \node [font=\normalsize] at (7,15.75) {$I$};
+    \node [font=\normalsize] at (-1.75,14.5) {$Incident$};
+    \node [font=\normalsize] at (-2,14) {$Light$};
+    \node [font=\normalsize] at (6.25,14.5) {$Transmitted$};
+    \node [font=\normalsize] at (6.5,14) {$Light$};
+    \node [font=\normalsize] at (2,14.25) {$x = 3mm$};
+    \node [font=\normalsize, rotate around={90:(0,0)}] at (0,11.25) {$Surface - 1$};
+    \node [font=\normalsize, rotate around={90:(0,0)}] at (4.5,11.25) {$Surface - 2$};
+    \end{circuitikz}
+    }%
+    
+    \label{fig:my_label}
+\end{figure}
